@@ -1,0 +1,1 @@
+--command "stack ghci shuffle:lib shuffle:test:shuffle-test --ghc-options='-fobject-code -Werror -Wall'" -T main

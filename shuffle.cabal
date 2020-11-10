@@ -1,0 +1,97 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: d6308fb2cd4c32cfcb6d3958eb6afbe6fadb24d4c5678448b796e725eea0b822
+
+name:           shuffle
+version:        0.1.0.0
+description:    Please see the README
+homepage:       https://github.com/armakuni/watercooler-selection-tool#readme
+bug-reports:    https://github.com/armakuni/watercooler-selection-tool/issues
+author:         Tom Oram
+maintainer:     tom.oram@armakuni.com
+copyright:      2020 Armakuni
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/armakuni/watercooler-selection-tool
+
+library
+  exposed-modules:
+      Prelude
+      Shuffle
+      Shuffle.Config
+      Shuffle.Display
+      Shuffle.Group
+      Shuffle.List
+      Shuffle.Person
+  other-modules:
+      Paths_shuffle
+  hs-source-dirs:
+      src
+  default-extensions: DeriveFunctor DeriveGeneric FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs OverloadedStrings RecordWildCards ScopedTypeVariables TypeApplications
+  build-depends:
+      MonadRandom
+    , aeson
+    , base-noprelude >=4.7 && <5
+    , bytestring
+    , exceptions
+    , fmt
+    , mtl
+    , random-shuffle
+    , relude
+    , text
+  default-language: Haskell2010
+
+executable shuffle-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_shuffle
+  hs-source-dirs:
+      app
+  default-extensions: DeriveFunctor DeriveGeneric FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs OverloadedStrings RecordWildCards ScopedTypeVariables TypeApplications
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      MonadRandom
+    , base-noprelude >=4.7 && <5
+    , random-shuffle
+    , relude
+    , shuffle
+    , text
+  default-language: Haskell2010
+
+test-suite shuffle-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Shuffle.ConfigSpec
+      Shuffle.DisplaySpec
+      Shuffle.GroupSpec
+      Shuffle.ListSpec
+      Shuffle.PersonSpec
+      Paths_shuffle
+  hs-source-dirs:
+      test
+  default-extensions: DeriveFunctor DeriveGeneric FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs OverloadedStrings RecordWildCards ScopedTypeVariables TypeApplications
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      MonadRandom
+    , QuickCheck
+    , base-noprelude >=4.7 && <5
+    , hlint
+    , hspec
+    , ormolu
+    , quickcheck-text
+    , random-shuffle
+    , relude
+    , shuffle
+    , text
+  default-language: Haskell2010
